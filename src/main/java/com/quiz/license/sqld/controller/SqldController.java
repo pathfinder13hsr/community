@@ -1,4 +1,4 @@
-package com.quiz.license.sqld.Controller;
+package com.quiz.license.sqld.controller;
 
 
 import com.quiz.license.sqld.Service.SqldService;
@@ -28,6 +28,7 @@ public class SqldController {
     @GetMapping("/list")
     public ResponseEntity<List<SqldEntity>> getBuyerList() {
         List<SqldEntity> sqldEntityList = sqldService.getSqldQuiz();
+        System.out.println("!!");
         return ResponseEntity.ok(sqldEntityList);
     }
 
