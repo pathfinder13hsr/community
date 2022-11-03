@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.quiz.license.community.mapper.CommunityMapper">
+
+    <select id="getCommunityList"
+            parameterType="com.quiz.license.community.domain.dto.CommunityDto"
+            resultType="com.quiz.license.community.domain.dto.CommunityDto"
+    >
+        SELECT
+          seq AS seq
+        , title AS title
+        , content AS content
+        , create_datetime AS createDatetime
+        , modify_datetime AS modifyDatetime
+        FROM community
+        <where>
+            <if test="seq != null">
+                seq=#{seq}
+            </if>
+            <if test="title != null">
+                title=#{title}
+            </if>
+            <if test="content != null">
+                content=#{content}
+            </if>
+        </where>
+        ORDER BY seq DESC
+    </select>
+
+    <select id="getCommunity"
+            parameterType="long"
+            resultType="com.quiz.license.community.domain.dto.CommunityDto"
+    >
+        SELECT
+               cm.seq AS seq
+             , cm.title AS title
+             , cm.content AS content
+             , cm.create_datetime AS createDatetime
+             , cm.modify_datetime AS modifyDatetime
+             , ac.user_id as userId
+             , ac.user_email as userEmail
+             , ac.user_nickname as userNickname
+             , ac.status_yn as statusYn
+        FROM community cm left join account ac
+        on cm.account_seq = ac.seq
+        WHERE cm.seq = #{seq}
+    </select>
+
+    <insert id="insertCommunity"
+            parameterType="com.quiz.license.community.domain.entity.CommunityEntity"
+    >
+        INSERT INTO community
+            (account_seq, title, content, create_datetime)
+            VALUES
+            (#{account.seq},#{title},#{content},#{createDatetime})
+    </insert>
+
+    <delete id="deleteCommunity"
+            parameterType="long"
+    >
+        DELETE
+        FROM community
+        WHERE seq = #{seq}
+    </delete>
+
+    <update id="updateCommunity"
+            parameterType="com.quiz.license.community.domain.entity.CommunityEntity"
+    >
+        UPDATE community
+        SET
+            title = #{title},
+            content = #{content},
+            modify_datetime = #{modifyDatetime}
+        WHERE
+            seq = #{seq}
+    </update>
+
+</mapper>

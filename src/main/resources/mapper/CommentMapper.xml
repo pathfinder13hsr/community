@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.quiz.license.community.mapper.CommentMapper">
+
+    <select id="getCommentList"
+            parameterType="long"
+            resultType="com.quiz.license.community.domain.dto.CommentDto"
+    >
+        SELECT
+          cm.seq as seq
+        , cm.board_seq as boardSeq
+        , cm.comment as comment
+        , cm.del_yn as delYn
+        , cm.create_datetime as createDatetime
+        , cm.modify_datetime as modifyDatetime
+        , ac.user_id as userId
+        , ac.user_email as userEmail
+        , ac.user_nickname as userNickname
+        , ac.create_datetime as commentCreateDatetime
+        , ac.modify_datetime as commentModifyDatetime
+        FROM comment cm LEFT JOIN account ac
+        ON cm.account_seq = ac.seq
+        WHERE cm.del_yn = 'N'
+          AND cm.board_seq = #{seq}
+        ORDER BY cm.seq DESC
+    </select>
+
+</mapper>

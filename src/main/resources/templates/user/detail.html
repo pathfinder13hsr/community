@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<!--<head>-->
+<head th:insert="/head.html"></head>
+
+<body>
+
+<!-- Navbar Start -->
+<nav th:insert="/nav.html"></nav>
+<!-- Navbar End -->
+
+
+
+<th:block th:each="user:${userDto}">
+  <div style="width: 50%;margin-left: auto; margin-right: auto;text-align: center; padding-top: 40px">
+    <h3 style="font-family: 'Fira Code';">마이페이지</h3>
+    <table class="table table-hover">
+      <tbody>
+        <tr>
+          <td class="bg-secondary">아이디</td>
+          <td th:text="${user.userId}"></td>
+        </tr>
+        <tr>
+          <td class="bg-secondary">이메일</td>
+          <td th:text="${user.userEmail}"></td>
+        </tr>
+        <tr>
+          <td class="bg-secondary">닉네임</td>
+          <td th:text="${user.userNickname}"></td>
+        </tr>
+        <tr>
+          <td class="bg-secondary">가입일</td>
+          <td th:text="${#temporals.format(user.createDatetime, 'yyyy-MM-dd hh:mm:ss')}"></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="controls d-flex justify-content-end">
+      <button class="btn btn-default" type="button" th:onclick="|location.href='@{/account/view/user/update/{userId}(userId=${user.userId})}'|">회원정보 수정</button>
+      <button class="btn btn-outline-danger" type="button">탈퇴</button>
+    </div>
+  </div>
+
+</th:block>
+
+
+
+
+<!-- Footer Start -->
+<footer th:insert="/footer.html"></footer>
+<!-- Footer End -->
+
+
+
+
+</body>
+
+</html>

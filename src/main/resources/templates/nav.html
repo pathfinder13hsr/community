@@ -1,0 +1,106 @@
+<nav id="navbar-main" class="navbar navbar-main navbar-expand-lg bg-white navbar-light position-sticky top-0 shadow py-2">
+    <div class="container">
+        <a class="navbar-brand mr-lg-5" th:href="@{/}">
+            <img src="/img/brand/communitylogo.png">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbar_global">
+            <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+<!--                퀴즈 구현하면 추가 -->
+<!--                <li class="nav-item dropdown">-->
+<!--                    <a href="#" class="nav-link" data-toggle="dropdown" role="button">-->
+<!--                        <i class="ni ni-collection d-lg-none"></i>-->
+<!--                        <span class="nav-link-inner&#45;&#45;text">QUIZ</span>-->
+<!--                    </a>-->
+<!--                    <div class="dropdown-menu">-->
+<!--                        <a href=" /examples/landing.html" class="dropdown-item">SQLD</a>-->
+<!--                    </div>-->
+<!--                </li>-->
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/notice/view/common/list}">
+                        <span class="nav-link-inner--text">Notice</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/community/view/common/list}">
+                        <span class="nav-link-inner--text">Community</span>
+                    </a>
+                </li>
+
+            </ul>
+            <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+                <li class="nav-item">
+                    <a class="btn btn-outline-primary" th:href="@{/login}" sec:authorize="!isAuthenticated()">
+                        <span class="nav-link-inner--text">Log In</span>
+                    </a>
+                    <a class="btn btn-outline-primary" th:href="@{/account/view/user/detail/{userId}(userId=${#authentication.name})}" sec:authorize="hasRole('USER')" id="mypageBtn">
+                        <span class="nav-link-inner--text">마이페이지</span>
+                        <input type="hidden" th:value="${#authentication.name}" id="currentUserId">
+                    </a>
+                    <a class="btn btn-outline-primary" th:href="@{/account/view/admin/list}" sec:authorize="hasRole('ADMIN')">
+                        <span class="nav-link-inner--text">회원관리</span>
+                    </a>
+                </li>
+<!--                <li class="nav-item d-none d-lg-block">-->
+                <li class="nav-item">
+                    <a class="btn btn-primary btn-icon" th:href="@{/account/view/common/signup}" sec:authorize="!isAuthenticated()">
+                        <span class="nav-link-inner--text">Sign Up</span>
+                    </a>
+                    <a class="btn btn-primary btn-icon" th:href="@{/logout}" sec:authorize="isAuthenticated()">
+                        <span class="nav-link-inner--text">Log Out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+
+
+
+
+
+
+<!--<nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">-->
+<!--  <a href="/" class="navbar-brand d-flex align-items-center px-4 px-lg-5">-->
+<!--    <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>OX QUIZ BANK</h2>-->
+<!--  </a>-->
+<!--  <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">-->
+<!--    <span class="navbar-toggler-icon"></span>-->
+<!--  </button>-->
+<!--  <div class="collapse navbar-collapse" id="navbarCollapse">-->
+<!--    <div class="navbar-nav ms-auto p-4 p-lg-0">-->
+<!--      <a th:href="@{/}" class="nav-item nav-link active">Home</a>-->
+<!--      <div class="nav-item dropdown">-->
+<!--        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">OX QUIZ</a>-->
+<!--        <div class="dropdown-menu fade-down m-0">-->
+<!--          <a th:href="@{/sqld/view/common/list}" class="dropdown-item">SQLD</a>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <a th:href="@{/community/view/common/list}" class="nav-item nav-link">COMMUNITY</a>-->
+<!--      <a th:href="@{/notice/view/common/list}" class="nav-item nav-link">NOTICE</a>-->
+
+<!--    </div>-->
+<!--    <div class="btn btn-dark py-4 px-lg-3 d-none d-lg-block">-->
+<!--&lt;!&ndash;      <a th:href="@{/account/view/common/login}">Log In</a>&ndash;&gt;-->
+<!--      <a th:href="@{/login}" sec:authorize="!isAuthenticated()">Log In</a>-->
+<!--      <a th:href="@{/account/view/user/detail/{userId}(userId=${#authentication.name})}" sec:authorize="hasRole('USER')" id="mypageBtn">마이페이지</a>-->
+<!--      <input type="hidden" th:value="${#authentication.name}" id="currentUserId">-->
+<!--      <a th:href="@{/account/view/admin/list}" sec:authorize="hasRole('ADMIN')">회원관리</a>-->
+<!--    </div>-->
+<!--    <div class="btn btn-dark py-4 px-lg-3 d-none d-lg-block">-->
+<!--&lt;!&ndash;      <a th:href="@{/account/view/common/signup}">Sign Up</a>&ndash;&gt;-->
+<!--      <a th:href="@{/account/view/common/signup}" sec:authorize="!isAuthenticated()">Sign Up</a>-->
+<!--      <a th:href="@{/logout}" sec:authorize="isAuthenticated()">Log Out</a>-->
+<!--    </div>-->
+
+
+
+<!--  </div>-->
+<!--</nav>-->
+
+<script type="text/javascript" th:src="@{/js/mypage.js}"></script>

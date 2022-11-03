@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<!--<head>-->
+<head th:insert="/head.html">
+
+
+</head>
+
+<body>
+
+
+<!-- Navbar Start -->
+<nav th:insert="/nav.html"></nav>
+<!-- Navbar End -->
+
+
+<!--<h1>게시글 수정 페이지</h1>-->
+<!--<div style="width: 30%; margin-left: auto; margin-right: auto;">-->
+<!--  <form class="form-horizontal" id="updateForm">-->
+<!--      <th:block th:each="community:${communityDtoDetail}">-->
+<!--          <input type="hidden" id="seq" th:value="${community.seq}">-->
+<!--          <div>-->
+<!--            <label for="createId">작성자 :-->
+<!--            <input type="text" id="createId"  th:value="${community.userNickname}" readonly>-->
+<!--            </label>-->
+<!--          </div>-->
+<!--          <div>-->
+<!--            <label for="title">제목 :-->
+<!--              <input type="text" id="title" th:value="${community.title}">-->
+<!--            </label>-->
+<!--          </div>-->
+<!--          <div>-->
+<!--            <label for="content">내용 :-->
+<!--              <textarea cols="50" rows="10" id="content" th:text="${community.content}"></textarea>-->
+<!--            </label>-->
+<!--          </div>-->
+
+<!--          <div class="control-group">-->
+<!--            &lt;!&ndash; Button &ndash;&gt;-->
+<!--            <div class="controls">-->
+<!--              <button class="btn btn-success" type="button" id="updateBtn">수정하기</button>-->
+<!--            </div>-->
+<!--              <div class="controls">-->
+<!--                  <button class="btn btn-dark" type="button" id="cancelBtn" th:onclick="|location.href='@{/community/view/common/{seq}(seq=${community.seq})}'|">취소</button>-->
+<!--              </div>-->
+<!--          </div>-->
+<!--      </th:block>-->
+<!--  </form>-->
+<!--</div>-->
+
+
+
+
+
+<div style="width: 50%; margin-left: auto; margin-right: auto;padding-top: 40px;">
+    <h3 style="font-family: 'Fira Code';">Community 수정하기</h3>
+    <form class="form-horizontal" id="updateForm">
+        <th:block th:each="community:${communityDtoDetail}">
+            <input type="hidden" id="seq" th:value="${community.seq}">
+            <table class="table">
+                <tbody>
+                <tr>
+                    <td class="col-sm-2 bg-secondary text-center"><strong>작성자</strong></td>
+                    <td colspan="3">
+                        <span id="userNickname" th:text="${community.userNickname}"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-sm-2 bg-secondary text-center"><strong>제목</strong></td>
+                    <td class="col-sm-4"><input class="form-control" type="text" id="title" th:value="${community.title}"></td>
+                </tr>
+                <tr>
+                    <td class="col-sm-2 bg-secondary text-center"><strong>내용</strong></td>
+                    <td class="col-sm-4"><textarea class="form-control" cols="50" rows="10" id="content" th:text="${community.content}"></textarea></td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="d-flex justify-content-end">
+                <button class="btn btn-primary" type="button" id="updateBtn">수정하기</button>
+                <button class="btn btn-secondary" type="button" id="cancelBtn" th:onclick="|location.href='@{/community/view/common/{seq}(seq=${community.seq})}'|">취소</button>
+            </div>
+        </th:block>
+    </form>
+</div>
+
+
+
+
+
+
+
+<script type="text/javascript" th:src="@{/js/updateCommunity.js}"></script>
+
+
+
+<!-- Footer Start -->
+<footer th:insert="/footer.html"></footer>
+<!-- Footer End -->
+
+
+
+
+</body>
+
+</html>

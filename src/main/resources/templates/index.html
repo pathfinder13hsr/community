@@ -1,0 +1,68 @@
+<!--
+=========================================================
+* Argon Design System - v1.2.2
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/argon-design-system
+* Copyright 2020 Creative Tim (https://www.creative-tim.com)
+
+Coded by www.creative-tim.com
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+<!DOCTYPE html>
+<html lang="ko"  xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="/head.html"></head>
+
+<body class="index-page">
+  <!-- Navbar -->
+  <nav th:insert="/nav.html"></nav>
+  <!-- End Navbar -->
+
+  <div class="wrapper">
+    <div class="section section-hero section-shaped">
+      <div class="shape shape-style-1 shape-primary">
+        <span class="span-150"></span>
+        <span class="span-50"></span>
+        <span class="span-50"></span>
+        <span class="span-75"></span>
+        <span class="span-100"></span>
+        <span class="span-75"></span>
+        <span class="span-50"></span>
+        <span class="span-100"></span>
+        <span class="span-50"></span>
+        <span class="span-100"></span>
+      </div>
+      <div class="page-header">
+        <div class="container shape-container d-flex align-items-center py-lg">
+          <div class="col px-0">
+            <div class="row align-items-center justify-content-center">
+              <div class="col-lg-6 text-center">
+                <img src="/img/brand/communitylogo_white.png" style="width: 300px;" class="img-fluid">
+                <p class="lead text-white" style="font-family: 'Nanum Brush Script', cursive; font-size: 60px;">당신의 이야기를 들려주세요</p>
+                <div class="btn-wrapper mt-5">
+                  <a th:href="@{/notice/view/common/list}" class="btn btn-lg btn-white btn-icon mb-3 mb-sm-0">
+                    <span class="btn-inner--text">Notice</span>
+                  </a>
+                  <a th:href="@{/community/view/common/list}" class="btn btn-lg btn-github btn-icon mb-3 mb-sm-0">
+                    <span class="btn-inner--text">Community</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Footer Start -->
+  <footer style="" th:insert="/footer.html"></footer>
+  <!-- Footer End -->
+
+</body>
+
+</html>

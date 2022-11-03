@@ -1,0 +1,54 @@
+spring:
+  config:
+    activate:
+      on-profile: local
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    jdbc-url: jdbc:mysql://localhost:3306/quiz
+    username: devquiz
+    password: wls201379010*
+    hikari:
+      pool-name: hikari-cp
+      maximum-pool-size: 10
+      max-lifetime: 55000
+      auto-commit: false
+      connection-test-query: SELECT 1
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    open-in-view: false
+# entity 자동 생성 구문
+#    hibernate:
+#      ddl-auto: create
+    properties:
+      hibernate:
+        show-sql: true
+        format_sql: true
+        ddl-auto: none
+  thymeleaf:
+    prefix: classpath:templates/
+    suffix: .html
+    cache: false
+
+logging:
+  level:
+    root: info
+    com:
+      zaxxer:
+        hikari: debug
+    jdbc:
+      resultset: debug
+      resultsettable: debug
+#      audit: debug
+#      sqltiming: debug
+#      connection: debug
+    org.hibernate:
+      type: off
+      SQL: info
+    org.springframework.web: info
+    javax.sql.DataSource: debug
+    log4jdbc.log4j2: off
+  logback:
+    rollingpolicy:
+      max-history: 7
+      max-file-size: 250MB
+      file-name-pattern: {yyyy-MM-dd}

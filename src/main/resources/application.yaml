@@ -1,0 +1,17 @@
+server:
+  port: 8081
+
+
+spring:
+  profiles:
+    active: local
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 500MB
+
+#  mvc:
+#    hidden-method:
+#      filter:
+#        enabled: true

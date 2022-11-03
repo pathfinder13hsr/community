@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<!--<head>-->
+<head>
+    <meta charset="utf-8">
+    <title>OX QUIZ BANK</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+<!--    &lt;!&ndash; Favicon &ndash;&gt;-->
+<!--    <link href="img/favicon.ico" rel="icon">-->
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link th:href="@{/lib/animate/animate.min.css}" rel="stylesheet">
+    <link th:href="@{/lib/owlcarousel/assets/owl.carousel.min.css}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/css/signup.css}" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/main.js}"></script>
+    <script type="text/javascript" th:src="@{/js/signup.js}"></script>
+    <script type="text/javascript" th:src="@{/lib/wow/wow.min.js}"></script>
+    <script type="text/javascript" th:src="@{/lib/easing/easing.min.js}"></script>
+    <script type="text/javascript" th:src="@{/lib/waypoints/waypoints.min.js}"></script>
+    <script type="text/javascript" th:src="@{/lib/owlcarousel/owl.carousel.min.js}"></script>
+
+
+
+</head>
+
+<body>
+
+
+    <!-- Navbar Start -->
+    <nav th:insert="/nav.html"></nav>
+    <!-- Navbar End -->
+
+
+
+
+    <div style="width: 50%; margin-left: auto; margin-right: auto;">
+        <form class="form-horizontal" id="signupForm">
+            <fieldset>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>아이디</td>
+                            <td><input type="text" id="userId" name="userId" placeholder="4~20자 영문 대소문자, 숫자" class="input-xlarge"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><p class="help-block" id="idCheck">ㅁㅇㄴㄻㄴㅇㄻㄴㅇㄻㄴㅇㄻㄴㅇㄻㄴㅇㄻㄴㅇㄹ</p></td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+        </form>
+    </div>
+
+
+
+<!--                <div id="legend">-->
+<!--                    <legend class="">회원가입</legend>-->
+<!--                </div>-->
+
+<!--                <div class="control-group">-->
+<!--                    &lt;!&ndash; ID &ndash;&gt;-->
+<!--                    <label class="control-label" for="userId">아이디</label>-->
+<!--                    <div class="controls">-->
+<!--                        <input type="text" id="userId" name="userId" placeholder="4~20자 영문 대소문자, 숫자" class="input-xlarge">-->
+<!--                        <p class="help-block" id="idCheck"></p>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="control-group">-->
+<!--                    &lt;!&ndash; Password&ndash;&gt;-->
+<!--                    <label class="control-label" for="userPw">비밀번호</label>-->
+<!--                    <div class="controls">-->
+<!--                        <input type="password" id="userPw" name="userPw" placeholder="8~16자 영문 대소문자+숫자+특수문자" class="input-xlarge">-->
+<!--                        <p class="help-block" id="pwCheck"></p>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="control-group">-->
+<!--                    &lt;!&ndash; Password &ndash;&gt;-->
+<!--                    <label class="control-label"  for="userPwConfirm">비밀번호 확인</label>-->
+<!--                    <div class="controls">-->
+<!--                        <input type="password" id="userPwConfirm" name="userPwConfirm" placeholder="" class="input-xlarge">-->
+<!--                        <p class="help-block" id="pwConfirm"></p>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="control-group">-->
+<!--                    &lt;!&ndash; E-mail &ndash;&gt;-->
+<!--                    <label class="control-label" for="userEmail">이메일</label>-->
+<!--                    <div class="controls">-->
+<!--                        <input type="text" id="userEmail" name="userEmail" placeholder="email@email.com" class="input-xlarge">-->
+<!--                        <p class="help-block" id="emailCheck"></p>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="control-group">-->
+<!--                    &lt;!&ndash; ID &ndash;&gt;-->
+<!--                    <label class="control-label"  for="userNickname">닉네임</label>-->
+<!--                    <div class="controls">-->
+<!--                        <input type="text" id="userNickname" name="userNickname" placeholder="특수문자를 제외한 2~10자리" class="input-xlarge">-->
+<!--                        <p class="help-block" id="nicknameCheck"></p>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+
+
+<!--                <div class="control-group">-->
+<!--                    &lt;!&ndash; Button &ndash;&gt;-->
+<!--                    <div class="controls">-->
+<!--                        <button class="btn btn-success" type="button" id="signupBtn">회원가입</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </fieldset>-->
+<!--        </form>-->
+<!--    </div>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--    <div style="width: 50%; margin-left: auto; margin-right: auto;">-->
+<!--        <form class="form-horizontal" id="signupForm">-->
+<!--            <fieldset>-->
+<!--                <div id="legend">-->
+<!--                    <legend class="">회원가입</legend>-->
+<!--                </div>-->
+
+<!--                <div class="control-group">-->
+<!--                    &lt;!&ndash; ID &ndash;&gt;-->
+<!--                    <label class="control-label" for="userId">아이디</label>-->
+<!--                        <div class="controls">-->
+<!--                            <input type="text" id="userId" name="userId" placeholder="4~20자 영문 대소문자, 숫자" class="input-xlarge">-->
+<!--                            <p class="help-block" id="idCheck"></p>-->
+<!--                        </div>-->
+<!--                </div>-->
+
+<!--                <div class="control-group">-->
+<!--                    &lt;!&ndash; Password&ndash;&gt;-->
+<!--                    <label class="control-label" for="userPw">비밀번호</label>-->
+<!--                    <div class="controls">-->
+<!--                        <input type="password" id="userPw" name="userPw" placeholder="8~16자 영문 대소문자+숫자+특수문자" class="input-xlarge">-->
+<!--                        <p class="help-block" id="pwCheck"></p>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="control-group">-->
+<!--                    &lt;!&ndash; Password &ndash;&gt;-->
+<!--                    <label class="control-label"  for="userPwConfirm">비밀번호 확인</label>-->
+<!--                    <div class="controls">-->
+<!--                        <input type="password" id="userPwConfirm" name="userPwConfirm" placeholder="" class="input-xlarge">-->
+<!--                        <p class="help-block" id="pwConfirm"></p>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="control-group">-->
+<!--                    &lt;!&ndash; E-mail &ndash;&gt;-->
+<!--                    <label class="control-label" for="userEmail">이메일</label>-->
+<!--                    <div class="controls">-->
+<!--                        <input type="text" id="userEmail" name="userEmail" placeholder="email@email.com" class="input-xlarge">-->
+<!--                        <p class="help-block" id="emailCheck"></p>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="control-group">-->
+<!--                    &lt;!&ndash; ID &ndash;&gt;-->
+<!--                    <label class="control-label"  for="userNickname">닉네임</label>-->
+<!--                    <div class="controls">-->
+<!--                        <input type="text" id="userNickname" name="userNickname" placeholder="특수문자를 제외한 2~10자리" class="input-xlarge">-->
+<!--                        <p class="help-block" id="nicknameCheck"></p>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+
+
+<!--                <div class="control-group">-->
+<!--                    &lt;!&ndash; Button &ndash;&gt;-->
+<!--                    <div class="controls">-->
+<!--                        <button class="btn btn-success" type="button" id="signupBtn">회원가입</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </fieldset>-->
+<!--        </form>-->
+<!--    </div>-->
+
+
+
+    <!-- Footer Start -->
+    <footer th:insert="/footer.html"></footer>
+    <!-- Footer End -->
+
+
+
+</body>
+
+</html>
